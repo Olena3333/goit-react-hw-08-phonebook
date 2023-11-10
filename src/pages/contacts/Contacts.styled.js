@@ -8,14 +8,15 @@ export const StyledContactsWrapper = styled.div`
   max-width: 500px;
   padding: 50px;
   background-color: #000000db;
+  border-radius: 6px;
   border: 2px solid white;
   box-shadow: 0px 8px 12px 6px gray;
-  h1 {
-    font-weight: 500px;
-    font-size: 48px;
+  h2 {
+    font-size: 38px;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 20px;
     color: white;
   }
   p {

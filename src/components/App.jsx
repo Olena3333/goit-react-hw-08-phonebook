@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import { Layout } from './Layout';
 import { Home } from 'pages/home/Home';
-import { Phonebook } from 'pages/Phonebook';
+import { Phonebook } from 'pages/phonebook/Phonebook';
 import { Contacts } from 'pages/contacts/Contacts';
 import { NotFound } from 'pages/notFound/NotFound';
 import { Register } from 'pages/Register';

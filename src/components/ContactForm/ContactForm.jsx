@@ -5,7 +5,11 @@ import { nanoid } from 'nanoid';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectContacts } from 'redux/sliceContacts';
 
-import { StyledForm, StyledInput } from './ContactForm.styled';
+import {
+  StyledForm,
+  StyledFormWrapper,
+  StyledInput,
+} from './ContactForm.styled';
 import { StyledButton } from 'components/App.styled';
 import { addContactThunk } from 'redux/operations';
 
@@ -55,30 +59,32 @@ export const ContactForm = () => {
   };
 
   return (
-    <StyledForm onSubmit={handelOnSubmit}>
-      <label>
-        Name:
-        <StyledInput
-          onChange={handelOnChange}
-          type="text"
-          placeholder="Enter the name "
-          name="name"
-          value={name}
-          required
-        />
-      </label>
-      <label>
-        Number:
-        <StyledInput
-          onChange={handelOnChange}
-          placeholder="Enter the number"
-          value={number}
-          type="tel"
-          name="number"
-          required
-        />
-      </label>
-      <StyledButton disabled={!name}>Add contact</StyledButton>
-    </StyledForm>
+    <StyledFormWrapper>
+      <StyledForm onSubmit={handelOnSubmit}>
+        <label>
+          Name:
+          <StyledInput
+            onChange={handelOnChange}
+            type="text"
+            placeholder="Enter the name "
+            name="name"
+            value={name}
+            required
+          />
+        </label>
+        <label>
+          Number:
+          <StyledInput
+            onChange={handelOnChange}
+            placeholder="Enter the number"
+            value={number}
+            type="tel"
+            name="number"
+            required
+          />
+        </label>
+        <StyledButton disabled={!name}>Add contact</StyledButton>
+      </StyledForm>
+    </StyledFormWrapper>
   );
 };
