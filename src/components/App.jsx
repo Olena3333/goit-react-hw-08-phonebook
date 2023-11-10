@@ -1,33 +1,23 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
-
-import { selectContacts } from 'redux/sliceContacts';
-import { fetchAllContactsThunk } from 'redux/operations';
-
-import { ContactForm } from './ContactForm/ContactForm';
-import { ContactList } from './ContactList/ContactList';
-import { Filter } from './Filter/Filter';
-import { Notificatio } from './Notificatio/Notificatio';
-
-import { StyledWrapper } from './App.styled';
+import { Route, Routes } from 'react-router-dom';
+import { Layout } from './Layout';
+import { Home } from 'pages/Home';
+import { Phonebook } from 'pages/Phonebook';
+import { Contacts } from 'pages/Contacts';
+import { NotFound } from 'pages/NotFound';
+import { Register } from 'pages/Register';
+import { Login } from 'pages/Login';
 
 export const App = () => {
-  const contacts = useSelector(selectContacts);
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(fetchAllContactsThunk());
-  }, [dispatch]);
   return (
-    <StyledWrapper>
-      <h1>Phonebook</h1>
-      <ContactForm />
-      <h2>Contacts</h2>
-      <Filter />
-      {contacts.length ? (
-        <ContactList />
-      ) : (
-        <Notificatio message={'You have no contacts'} />
-      )}
-    </StyledWrapper>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Home />} />
+        <Route path="phonebook" element={<Phonebook />} />
+        <Route path="contacts" element={<Contacts />} />
+        <Route path="login" element={<Login />} />
+        <Route path="register" element={<Register />} />
+      </Route>
+      <Route path="*" element={<NotFound />}></Route>
+    </Routes>
   );
 };

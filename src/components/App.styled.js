@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+export const StyledBackground = styled.div``;
+
 export const StyledWrapper = styled.div`
   margin-top: 50px;
   margin-bottom: 50px;
