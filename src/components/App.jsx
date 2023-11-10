@@ -4,8 +4,8 @@ import { Home } from 'pages/home/Home';
 import { Phonebook } from 'pages/phonebook/Phonebook';
 import { Contacts } from 'pages/contacts/Contacts';
 import { NotFound } from 'pages/notFound/NotFound';
-import { Register } from 'pages/Register';
-import Login from 'pages/Login';
+import { Register } from 'pages/register/Register';
+import Login from 'pages/login/Login';
 
 export const App = () => {
   return (
