@@ -3,9 +3,9 @@ import { Layout } from './Layout';
 import { Home } from 'pages/Home';
 import { Phonebook } from 'pages/Phonebook';
 import { Contacts } from 'pages/Contacts';
-import { NotFound } from 'pages/NotFound';
+import { NotFound } from 'pages/notFound/NotFound';
 import { Register } from 'pages/Register';
-import { Login } from 'pages/Login';
+import Login from 'pages/Login';
 
 export const App = () => {
   return (
