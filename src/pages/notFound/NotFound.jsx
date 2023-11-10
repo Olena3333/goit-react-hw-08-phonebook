@@ -1,5 +1,7 @@
 import React from 'react';
+
 import img from '../../img/404-page-not-found.png';
+
 import { StyledNotFoundImg, StyledNotFoundWrapper } from './NotFound.styled';
 export const NotFound = () => {
   return (

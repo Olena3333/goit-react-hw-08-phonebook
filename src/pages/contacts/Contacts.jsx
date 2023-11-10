@@ -6,8 +6,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectContacts } from 'redux/sliceContacts';
 import { fetchAllContactsThunk } from 'redux/operations';
 
-import { StyledWrapper } from 'components/App.styled';
 import ContactList from 'components/ContactList/ContactList';
+import { StyledContactsWrapper } from './Contacts.styled';
 
 export const Contacts = () => {
   const contacts = useSelector(selectContacts);
@@ -18,7 +18,7 @@ export const Contacts = () => {
   }, [dispatch]);
 
   return (
-    <StyledWrapper>
+    <StyledContactsWrapper>
       <h2>Contacts</h2>
       <Filter />
       {contacts.length ? (
@@ -26,6 +26,6 @@ export const Contacts = () => {
       ) : (
         <Notificatio message={'You have no contacts'} />
       )}
-    </StyledWrapper>
+    </StyledContactsWrapper>
   );
 };

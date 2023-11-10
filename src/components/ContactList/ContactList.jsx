@@ -11,7 +11,7 @@ import { selectFilter } from 'redux/sliseFilter';
 
 import Loader from 'components/Loader/Loader';
 
-import { StyledList } from './ContactList.styled';
+import { StyledContactText, StyledList } from './ContactList.styled';
 import { StyledButton } from 'components/App.styled';
 import { deleteContactThunk } from 'redux/operations';
 
@@ -34,7 +34,7 @@ export const ContactList = () => {
   }, [error, loading]);
 
   if (!filteredContacts.length) {
-    return <p>No contacts found.</p>;
+    return <StyledContactText>No contacts found</StyledContactText>;
   }
 
   return (
