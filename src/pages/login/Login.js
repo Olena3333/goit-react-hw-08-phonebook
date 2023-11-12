@@ -10,7 +10,7 @@ import {
   StyledLoginWrapper,
 } from './Login.styled';
 
-const Login = () => {
+export const Login = () => {
   const { register, handleSubmit, reset } = useForm();
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -41,5 +41,3 @@ const Login = () => {
     </StyledLoginWrapper>
   );
 };
-
-export default Login;
