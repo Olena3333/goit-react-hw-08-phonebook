@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { toast } from 'react-toastify';
 import { StyledHomeWrapper } from './Home.styled';
 import { useSelector } from 'react-redux';
 import { selectIsLoggedIn, selectUser } from 'redux/auth/selectors';
@@ -9,6 +9,7 @@ export const Home = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
 
   if (isLoggedIn) {
+    toast.success(`Welcome${name}`);
     return (
       <StyledHomeWrapper>
         <h1>Phonebook</h1>

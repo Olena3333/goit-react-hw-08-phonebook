@@ -15,6 +15,7 @@ import { selectRefresh } from 'redux/auth/selectors';
 import { refreshThunk } from 'redux/auth/operations';
 import { PrivateRoute } from 'hoc/PrivateRoute';
 import PublicRoute from 'hoc/PublicRoute';
+import Loader from './Loader/Loader';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -23,7 +24,7 @@ export const App = () => {
     dispatch(refreshThunk());
   }, [dispatch]);
   return refresh ? (
-    <Loading />
+    <Loader />
   ) : (
     <Routes>
       <Route

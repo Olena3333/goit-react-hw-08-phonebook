@@ -10,6 +10,7 @@ import {
   StyledNavbarWrapper,
 } from './Navbar.styled';
 import styled from 'styled-components';
+import { toast } from 'react-toastify';
 
 export const Navbar = () => {
   const { name } = useSelector(selectUser);
@@ -18,7 +19,9 @@ export const Navbar = () => {
 
   const handleLogout = () => {
     dispatch(logoutThunk());
+    toast.success(`Goodbye${name}`);
   };
+
   return (
     <nav>
       <StyledNavbarWrapper>
