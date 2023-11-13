@@ -3,7 +3,7 @@ import React from 'react';
 import img from '../../img/404-page-not-found.png';
 
 import { StyledNotFoundImg, StyledNotFoundWrapper } from './NotFound.styled';
-export const NotFound = () => {
+const NotFound = () => {
   return (
     <StyledNotFoundWrapper>
       <h1>Not found! 404</h1>
@@ -11,3 +11,4 @@ export const NotFound = () => {
     </StyledNotFoundWrapper>
   );
 };
+export default NotFound;

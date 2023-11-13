@@ -5,7 +5,7 @@ import { Outlet } from 'react-router-dom';
 
 import { StyledLayoutWrapper } from './Loyout.styled';
 
-export const Layout = () => {
+const Layout = () => {
   return (
     <div>
       <StyledLayoutWrapper>
@@ -17,3 +17,4 @@ export const Layout = () => {
     </div>
   );
 };
+export default Layout;

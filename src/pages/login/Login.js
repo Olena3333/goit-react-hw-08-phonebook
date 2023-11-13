@@ -1,43 +1,86 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+
 import { loginThunk } from 'redux/auth/operations';
 import {
+  BtnContainerOne,
+  ButtonsStyled,
+  LinkStyled,
+  StyledLabel,
   StyledLoginForm,
   StyledLoginFormWrapper,
   StyledLoginInput,
   StyledLoginWrapper,
 } from './Login.styled';
+import { selectIsLoggedIn } from 'redux/auth/selectors';
+import { toast } from 'react-toastify';
+import { selectError } from 'redux/sliceContacts';
+import { Navigate, useNavigate } from 'react-router-dom';
 
-export const Login = () => {
-  const { register, handleSubmit, reset } = useForm();
+const Login = () => {
   const dispatch = useDispatch();
+  const isLoggedIn = useSelector(selectIsLoggedIn);
   const navigate = useNavigate();
+  const error = useSelector(selectError);
+  const { register, reset, handleSubmit } = useForm();
 
   const submit = data => {
     dispatch(loginThunk(data));
-    // console.log(data);
+    reset();
+  };
+  const handleExit = () => {
+    navigate('/');
   };
 
+  useEffect(() => {
+    if (error) {
+      toast.error(error);
+    }
+  }, [error]);
+
+  if (isLoggedIn) {
+    return <Navigate to="/" />;
+  }
   return (
     <StyledLoginWrapper>
+      <BtnContainerOne>
+        <ButtonsStyled onClick={handleExit} type="button">
+          X
+        </ButtonsStyled>
+      </BtnContainerOne>
       <StyledLoginFormWrapper>
         <StyledLoginForm action="" onSubmit={handleSubmit(submit)}>
-          <h2>Login</h2>
-          <StyledLoginInput
-            type="text"
-            {...register('email', { required: true })}
-            placeholder="Enter email"
-          />
-          <StyledLoginInput
-            type="text"
-            {...register('password', { required: true })}
-            placeholder="Enter password"
-          />
-          <button>Login</button>
+          <h2>Log in</h2>
+          <StyledLabel>
+            Email:
+            <StyledLoginInput
+              type="email"
+              {...register('email', { required: true })}
+              placeholder="Enter email"
+            />
+          </StyledLabel>
+          <StyledLabel>
+            Password:
+            <StyledLoginInput
+              autoComplete="on"
+              type="password"
+              {...register('password', {
+                required: true,
+              })}
+              placeholder="Enter password"
+            />
+          </StyledLabel>
+          <button>Log in</button>
+          <p>
+            If you don't have an account
+            <span>
+              <LinkStyled to="/register">Sign Up</LinkStyled>
+            </span>
+          </p>
         </StyledLoginForm>
       </StyledLoginFormWrapper>
     </StyledLoginWrapper>
   );
 };
+export default Login;

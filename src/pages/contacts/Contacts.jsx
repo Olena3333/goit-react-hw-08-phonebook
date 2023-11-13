@@ -9,7 +9,7 @@ import { fetchAllContactsThunk } from 'redux/operations';
 import ContactList from 'components/ContactList/ContactList';
 import { StyledContactsWrapper } from './Contacts.styled';
 
-export const Contacts = () => {
+const Contacts = () => {
   const contacts = useSelector(selectContacts);
   const dispatch = useDispatch();
 
@@ -29,3 +29,4 @@ export const Contacts = () => {
     </StyledContactsWrapper>
   );
 };
+export default Contacts;

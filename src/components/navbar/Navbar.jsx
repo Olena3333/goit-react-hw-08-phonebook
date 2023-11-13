@@ -11,8 +11,8 @@ export const Navbar = () => {
         <StyledLink to="/">Home</StyledLink>
         <StyledLink to="/phonebook">Phonebook</StyledLink>
         <StyledLink to="/contacts">Contacts</StyledLink>
-        <StyledLink to="/login">Login</StyledLink>
-        <StyledLink to="/register">Register</StyledLink>
+        <StyledLink to="/login">Log in</StyledLink>
+        <StyledLink to="/register">Sign Up</StyledLink>
       </StyledNavbarWrapper>
     </nav>
   );

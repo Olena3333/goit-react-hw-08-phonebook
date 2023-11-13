@@ -4,7 +4,7 @@ import { ContactForm } from 'components/ContactForm/ContactForm';
 
 import { StyledPhonesWrapper } from './Phonebook.styled';
 
-export const Phonebook = () => {
+const Phonebook = () => {
   return (
     <StyledPhonesWrapper>
       <h1>Phonebook</h1>
@@ -12,3 +12,4 @@ export const Phonebook = () => {
     </StyledPhonesWrapper>
   );
 };
+export default Phonebook;

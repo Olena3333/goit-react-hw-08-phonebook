@@ -1,8 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { StyledHomeWrapper } from './Home.styled';
+import { useSelector } from 'react-redux';
+import { selectIsLoggedIn, selectUser } from 'redux/auth/selectors';
+import { toast } from 'react-toastify';
 
 export const Home = () => {
+  const { name } = useSelector(selectUser);
+  const isLoggedIn = useSelector(selectIsLoggedIn);
+
+  if (isLoggedIn) {
+    return (
+      <StyledHomeWrapper>
+        <h1>Phonebook</h1>
+        <p>Welcome {name}</p>
+      </StyledHomeWrapper>
+    );
+  }
   return (
     <StyledHomeWrapper>
       <h1>Phonebook</h1>
@@ -10,3 +24,4 @@ export const Home = () => {
     </StyledHomeWrapper>
   );
 };
+export default Home;

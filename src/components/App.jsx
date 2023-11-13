@@ -1,22 +1,72 @@
 import { Route, Routes } from 'react-router-dom';
+import { Suspense, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { Layout } from './loyout/Layout';
-import { Home } from 'pages/home/Home';
-import { Phonebook } from 'pages/phonebook/Phonebook';
-import { Contacts } from 'pages/contacts/Contacts';
-import { NotFound } from 'pages/notFound/NotFound';
-import { Register } from 'pages/register/Register';
-import { Login } from 'pages/login/Login';
+import Home from 'pages/home/Home';
+import Phonebook from 'pages/phonebook/Phonebook';
+import Contacts from 'pages/contacts/Contacts';
+import Login from 'pages/login/Login';
+import Register from 'pages/register/Register';
+import NotFound from 'pages/notFound/NotFound';
+import Layout from './loyout/Layout';
+import Loading from './loading/Loading';
+
+import { selectRefresh } from 'redux/auth/selectors';
+import { refreshThunk } from 'redux/auth/operations';
+import { PrivateRoute } from 'hoc/PrivateRoute';
+import PublicRoute from 'hoc/PublicRoute';
 
 export const App = () => {
-  return (
+  const dispatch = useDispatch();
+  const refresh = useSelector(selectRefresh);
+  useEffect(() => {
+    dispatch(refreshThunk());
+  }, [dispatch]);
+  return refresh ? (
+    <Loading />
+  ) : (
     <Routes>
-      <Route path="/" element={<Layout />}>
+      <Route
+        path="/"
+        element={
+          <Suspense fallback={<Loading />}>
+            <Layout />
+          </Suspense>
+        }
+      >
         <Route index element={<Home />} />
-        <Route path="phonebook" element={<Phonebook />} />
-        <Route path="contacts" element={<Contacts />} />
-        <Route path="login" element={<Login />} />
-        <Route path="register" element={<Register />} />
+        <Route
+          path="/phonebook"
+          element={
+            <PrivateRoute>
+              <Phonebook />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/contacts"
+          element={
+            <PrivateRoute>
+              <Contacts />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <PublicRoute>
+              <Login />
+            </PublicRoute>
+          }
+        />
+        <Route
+          path="/register"
+          element={
+            <PublicRoute>
+              <Register />
+            </PublicRoute>
+          }
+        />
       </Route>
       <Route path="*" element={<NotFound />}></Route>
     </Routes>

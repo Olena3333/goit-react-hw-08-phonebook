@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const StyledRegisterWrapper = styled.div`
@@ -6,7 +7,7 @@ export const StyledRegisterWrapper = styled.div`
   margin-left: auto;
   margin-right: auto;
   max-width: 500px;
-  padding: 30px;
+  padding: 20px;
   background-color: #000000db;
   border-radius: 6px;
   border: 2px solid white;
@@ -16,13 +17,31 @@ export const StyledRegisterWrapper = styled.div`
 export const StyledRegisterFormWrapper = styled.div`
   display: flex;
   justify-content: center;
+  border-radius: 12px;
   align-items: center;
+  p {
+    font-size: 14px;
+    color: white;
+  }
 `;
-
+export const StyledLabel = styled.label`
+  font-size: 18px;
+  color: white;
+`;
+export const LinkStyled = styled(Link)`
+  margin-left: 16px;
+  font-size: 18px;
+  color: white;
+  text-decoration: none;
+  &:hover {
+    color: #00810b;
+  }
+`;
 export const StyledRegisterInput = styled.input`
   font-size: 16px;
   margin-left: 16px;
   padding: 6px;
+  border-radius: 8px;
 `;
 
 export const StyledRegisterForm = styled.form`
@@ -46,9 +65,35 @@ export const StyledRegisterForm = styled.form`
     display: block;
     font-size: 16px;
     max-width: 140px;
+    border-radius: 12px;
     margin-top: 30px;
     margin-left: auto;
     margin-right: auto;
-    padding: 10px 16px;
+    padding: 12px 18px;
   }
+`;
+export const ButtonsStyled = styled.button`
+  width: fit-content;
+  text-decoration: none;
+
+  padding: 8px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  height: 50px;
+  color: white;
+  border: 2px solid wheat;
+  justify-content: center;
+  border-color: white;
+  font-size: 24px;
+  background: transparent;
+  &:hover {
+    color: #00810b;
+    border-color: #00810b;
+  }
+`;
+export const BtnContainerOne = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 `;
