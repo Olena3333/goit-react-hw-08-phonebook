@@ -1,9 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 import { StyledHomeWrapper } from './Home.styled';
 import { useSelector } from 'react-redux';
 import { selectIsLoggedIn, selectUser } from 'redux/auth/selectors';
-import { toast } from 'react-toastify';
 
 export const Home = () => {
   const { name } = useSelector(selectUser);
