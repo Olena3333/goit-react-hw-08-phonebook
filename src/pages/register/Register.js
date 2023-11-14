@@ -63,7 +63,7 @@ export const Register = () => {
                   message: 'Name should be at least 3 characters',
                 },
               })}
-              placeholder="Enter name"
+              placeholder="Enter name, least 3 characters"
             />
           </StyledLabel>
           <StyledLabel>
@@ -77,7 +77,7 @@ export const Register = () => {
                   message: 'Email should be at least 6 characters',
                 },
               })}
-              placeholder="Enter email"
+              placeholder="Enter email, least 6 characters"
             />
           </StyledLabel>
           <StyledLabel>
@@ -92,7 +92,7 @@ export const Register = () => {
                   message: 'Password should be at least 7 characters',
                 },
               })}
-              placeholder="Enter password"
+              placeholder="Enter password, least 7 characters"
             />
           </StyledLabel>
           <button to="/" type="submit">

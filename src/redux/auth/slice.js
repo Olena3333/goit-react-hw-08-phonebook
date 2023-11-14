@@ -64,6 +64,7 @@ const slice = createSlice({
           state.token = payload.token;
           state.isLoggedIn = true;
           state.error = '';
+          state.isRefreshing = false;
         }
       );
   },

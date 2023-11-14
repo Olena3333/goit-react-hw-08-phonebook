@@ -23,6 +23,7 @@ export const App = () => {
   useEffect(() => {
     dispatch(refreshThunk());
   }, [dispatch]);
+  debugger;
   return refresh ? (
     <Loader />
   ) : (
