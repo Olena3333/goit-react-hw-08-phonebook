@@ -56,7 +56,7 @@ const Login = () => {
             Email:
             <StyledLoginInput
               type="email"
-              {...register('email', { required: true })}
+              {...register('email', { required: true, minLength: 5 })}
               placeholder="Enter email"
             />
           </StyledLabel>
@@ -67,6 +67,7 @@ const Login = () => {
               type="password"
               {...register('password', {
                 required: true,
+                minLength: 7,
               })}
               placeholder="Enter password"
             />

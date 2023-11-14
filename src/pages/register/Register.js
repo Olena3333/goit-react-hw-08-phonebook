@@ -56,7 +56,13 @@ export const Register = () => {
             Name:
             <StyledRegisterInput
               type="text"
-              {...register('name', { required: true })}
+              {...register('name', {
+                required: true,
+                minLength: {
+                  value: 3,
+                  message: 'Name should be at least 3 characters',
+                },
+              })}
               placeholder="Enter name"
             />
           </StyledLabel>
@@ -64,7 +70,13 @@ export const Register = () => {
             Email:
             <StyledRegisterInput
               type="email"
-              {...register('email', { required: true })}
+              {...register('email', {
+                required: true,
+                minLength: {
+                  value: 6,
+                  message: 'Email should be at least 6 characters',
+                },
+              })}
               placeholder="Enter email"
             />
           </StyledLabel>
@@ -75,6 +87,10 @@ export const Register = () => {
               autoComplete="on"
               {...register('password', {
                 required: true,
+                minLength: {
+                  value: 7,
+                  message: 'Password should be at least 7 characters',
+                },
               })}
               placeholder="Enter password"
             />
