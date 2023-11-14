@@ -20,7 +20,12 @@ import {
 import { toast } from 'react-toastify';
 
 export const Register = () => {
-  const { register, handleSubmit, reset } = useForm();
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const isLoggedIn = useSelector(selectIsLoggedIn);
@@ -63,8 +68,9 @@ export const Register = () => {
                   message: 'Name should be at least 3 characters',
                 },
               })}
-              placeholder="Enter name, least 3 characters"
+              placeholder="Enter name"
             />
+            {errors?.name && <div>{errors.name.message}</div>}
           </StyledLabel>
           <StyledLabel>
             Email:
@@ -77,8 +83,9 @@ export const Register = () => {
                   message: 'Email should be at least 6 characters',
                 },
               })}
-              placeholder="Enter email, least 6 characters"
+              placeholder="Enter email"
             />
+            {errors?.email && <div>{errors.email.message}</div>}
           </StyledLabel>
           <StyledLabel>
             Password:
@@ -92,8 +99,9 @@ export const Register = () => {
                   message: 'Password should be at least 7 characters',
                 },
               })}
-              placeholder="Enter password, least 7 characters"
+              placeholder="Enter password"
             />
+            {errors?.password && <div>{errors.password.message}</div>}
           </StyledLabel>
           <button to="/" type="submit">
             Sign up

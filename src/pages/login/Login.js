@@ -23,7 +23,12 @@ const Login = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
   const navigate = useNavigate();
   const error = useSelector(selectError);
-  const { register, reset, handleSubmit } = useForm();
+  const {
+    register,
+    reset,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
   const submit = data => {
     dispatch(loginThunk(data));
@@ -56,9 +61,14 @@ const Login = () => {
             Email:
             <StyledLoginInput
               type="email"
-              {...register('email', { required: true, minLength: 5 })}
+              {...register('email', {
+                required: true,
+                value: 6,
+                message: 'Email should be at least 6 characters',
+              })}
               placeholder="Enter email"
             />
+            {errors?.password && <div>{errors.password.message}</div>}
           </StyledLabel>
           <StyledLabel>
             Password:
@@ -67,10 +77,12 @@ const Login = () => {
               type="password"
               {...register('password', {
                 required: true,
-                minLength: 7,
+                value: 7,
+                message: 'Password should be at least 7 characters',
               })}
               placeholder="Enter password"
             />
+            {errors?.password && <div>{errors.password.message}</div>}
           </StyledLabel>
           <button>Log in</button>
           <p>

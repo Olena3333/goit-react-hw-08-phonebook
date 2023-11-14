@@ -26,7 +26,13 @@ export const StyledLoginFormWrapper = styled.div`
 `;
 export const StyledLabel = styled.label`
   font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
   color: white;
+  div {
+    color: red;
+  }
 `;
 export const StyledLoginInput = styled.input`
   font-size: 16px;
@@ -45,13 +51,7 @@ export const StyledLoginForm = styled.form`
     text-align: center;
     color: white;
   }
-  label {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 16px;
-    color: white;
-  }
+
   button {
     display: block;
     border-radius: 12px;

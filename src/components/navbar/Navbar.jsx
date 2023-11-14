@@ -28,8 +28,13 @@ export const Navbar = () => {
         <StyledLink to="/">Home</StyledLink>
         <StyledLink to="/phonebook">Phonebook</StyledLink>
         <StyledLink to="/contacts">Contacts</StyledLink>
-        <StyledLink to="/login">Log in</StyledLink>
-        <StyledLink to="/register">Sign Up</StyledLink>
+        {!isLoggedIn && (
+          <div>
+            <StyledLink to="/login">Log in</StyledLink>
+            <StyledLink to="/register">Sign Up</StyledLink>
+          </div>
+        )}
+
         {isLoggedIn && (
           <StyledLogouWrapper>
             <p>{name}</p>

@@ -26,7 +26,13 @@ export const StyledRegisterFormWrapper = styled.div`
 `;
 export const StyledLabel = styled.label`
   font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
   color: white;
+  div {
+    color: red;
+  }
 `;
 export const LinkStyled = styled(Link)`
   margin-left: 16px;
