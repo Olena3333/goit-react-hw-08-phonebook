@@ -63,12 +63,14 @@ const Login = () => {
               type="email"
               {...register('email', {
                 required: true,
-                value: 6,
-                message: 'Email should be at least 6 characters',
+                minLength: {
+                  value: 6,
+                  message: 'Email should be at least 6 characters',
+                },
               })}
               placeholder="Enter email"
             />
-            {errors?.password && <div>{errors.password.message}</div>}
+            {errors?.email && <div>{errors.email.message}</div>}
           </StyledLabel>
           <StyledLabel>
             Password:
@@ -77,8 +79,10 @@ const Login = () => {
               type="password"
               {...register('password', {
                 required: true,
-                value: 7,
-                message: 'Password should be at least 7 characters',
+                minLength: {
+                  value: 7,
+                  message: 'Password should be at least 7 characters',
+                },
               })}
               placeholder="Enter password"
             />

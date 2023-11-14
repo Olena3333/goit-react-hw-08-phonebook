@@ -51,7 +51,6 @@ export const StyledLoginForm = styled.form`
     text-align: center;
     color: white;
   }
-
   button {
     display: block;
     border-radius: 12px;
@@ -66,7 +65,6 @@ export const StyledLoginForm = styled.form`
 export const ButtonsStyled = styled.button`
   width: fit-content;
   text-decoration: none;
-
   padding: 8px;
   border-radius: 50%;
   cursor: pointer;
