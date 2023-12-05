@@ -1,6 +1,16 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
+export const StyledLoginFormWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  border-radius: 12px;
+  align-items: center;
+  p {
+    font-size: 14px;
+    color: white;
+  }
+`;
 export const StyledLoginWrapper = styled.div`
   margin-top: 50px;
   margin-bottom: 50px;
@@ -12,17 +22,6 @@ export const StyledLoginWrapper = styled.div`
   border-radius: 6px;
   border: 2px solid white;
   box-shadow: 0px 8px 12px 6px gray;
-`;
-
-export const StyledLoginFormWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  border-radius: 12px;
-  align-items: center;
-  p {
-    font-size: 14px;
-    color: white;
-  }
 `;
 export const StyledLabel = styled.label`
   font-size: 18px;
